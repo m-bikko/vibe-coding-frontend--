@@ -46,7 +46,7 @@ export default function AIExplorePage() {
             <div className="flex items-center space-x-2">
               <div className={`flex items-center gap-2 text-sm ${mode === 'dashboard' ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
                 <LayoutDashboard className="w-4 h-4" />
-                <span className="hidden sm:inline">Dashboard</span>
+                <span className="hidden sm:inline">Дашборд</span>
               </div>
               <Switch
                 id="mode-toggle"
@@ -55,7 +55,7 @@ export default function AIExplorePage() {
               />
               <div className={`flex items-center gap-2 text-sm ${mode === 'chat' ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
                 <MessageSquare className="w-4 h-4" />
-                <span className="hidden sm:inline">Chat Bot</span>
+                <span className="hidden sm:inline">Чат-бот</span>
               </div>
             </div>
 

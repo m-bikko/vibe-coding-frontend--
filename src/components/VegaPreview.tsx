@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 // Use next/dynamic to load VegaEmbed safely with no SSR
 const VegaEmbed = dynamic(
     () => import('react-vega').then((mod) => mod.VegaEmbed as any),
-    { ssr: false, loading: () => <div className="text-sm text-muted-foreground">Loading Vega...</div> }
+    { ssr: false, loading: () => <div className="text-sm text-muted-foreground">Загрузка Vega...</div> }
 ) as any;
 
 // Hardcoded data as per requirements
@@ -147,7 +147,7 @@ export function VegaPreview({ currentText, minified = false }: VegaPreviewProps)
                         : 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/30 dark:text-amber-400 dark:border-amber-800'
                         }`}>
                         {dataStatus === 'live' ? <Database className="w-3 h-3" /> : <Table className="w-3 h-3" />}
-                        {dataStatus === 'live' ? 'Live Data' : 'Sample Data'}
+                        {dataStatus === 'live' ? 'Живые данные' : 'Пример данных'}
                     </span>
                 </div>
             )}
@@ -161,7 +161,7 @@ export function VegaPreview({ currentText, minified = false }: VegaPreviewProps)
     ) : (
         // ... waiting ...
         <div className="text-muted-foreground text-sm">
-            {minified ? null : "Waiting for valid Vega spec..."}
+            {minified ? null : "Ожидание валидной спецификации Vega..."}
         </div>
     );
 
@@ -178,14 +178,14 @@ export function VegaPreview({ currentText, minified = false }: VegaPreviewProps)
     return (
         <Card className="h-full flex flex-col">
             <CardHeader className="pb-3 border-b flex flex-row items-center justify-between">
-                <CardTitle className="text-lg font-medium">Vega Chart Preview</CardTitle>
+                <CardTitle className="text-lg font-medium">Предпросмотр графика Vega</CardTitle>
                 {/* Status can also go here for Dashboard mode */}
                 {spec && (
                     <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium border ${dataStatus === 'live'
                         ? 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/30 dark:text-emerald-400 dark:border-emerald-800'
                         : 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/30 dark:text-amber-400 dark:border-amber-800'
                         }`}>
-                        {dataStatus === 'live' ? 'LIVE' : 'SAMPLE'}
+                        {dataStatus === 'live' ? 'LIVE' : 'ПРИМЕР'}
                     </span>
                 )}
             </CardHeader>

@@ -1,73 +1,75 @@
-# 🚀 AI Explore
+# 🚀 AI Explore (Визуализация ИИ)
 
-**Visualize LLM Streams & Data in Real-Time.**
+**Визуализация потоков LLM и данных в реальном времени.**
 
-AI Explore is a modern Next.js application designed to bring raw LLM outputs to life. It captures streaming text and code from a `.jsonl` dump, simulates a real-time server connection, and magically extracts & renders **Vega-Lite** charts dynamically as they appear in the conversation.
-
----
-
-## ✨ Features
-
-### 🧠 Core Intelligence
-*   **Real-time Emulation**: Simulates a live Server-Sent Events (SSE) stream from a static dump file.
-*   **Dynamic Parsing**: Intelligently detects and renders generic text alongside complex Vega-Lite chart specifications.
-
-### 🎨 Dual Interface Modes
-Switch instantly between two powerful views:
-
-1.  **📊 Dashboard Mode** (Classic)
-    *   A professional, split-pane layout.
-    *   Perfect for debugging and analyzing raw data vs. visual output side-by-side.
-
-2.  **💬 Chat Bot Mode** (Modern)
-    *   A sleek, conversational interface inspired by tools like ChatGPT.
-    *   **Immersive Visuals**: Charts appear *inside* the chat bubbles, seamlessly integrated with the text.
-    *   **Smart Controls**: Playback controls are tucked away at the bottom, just like a chat input bar.
-
-### 🎛️ Full Control
-*   **Playback**: Play, Pause, and Replay the stream at will.
-*   **Speed Board**: A dedicated control center to speed up (up to 5x) or slow down the stream to analyze details.
-*   **Mobile Ready**: Fully responsive design that feels native on phones and tablets.
+AI Explore — это современное приложение на Next.js, разработанное для оживления "сырых" выводов LLM. Оно захватывает потоковый текст и код из дампа `.jsonl`, имитирует реальное подключение к серверу и магическим образом извлекает и рендерит графики **Vega-Lite** динамически по мере их появления в диалоге.
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Как запустить (Туториал)
 
-Built with love using the cutting-edge Vercel stack:
+Следуйте этим простым шагам, чтобы запустить проект локально:
 
-*   **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
-*   **Language**: [TypeScript](https://www.typescriptlang.org/)
-*   **Styling**: [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
-*   **Charts**: [Vega-Lite](https://vega.github.io/vega-lite/) via `react-vega`
-*   **Icons**: [Lucide React](https://lucide.dev/)
-
----
-
-## 🚀 Getting Started
-
-Follow these simple steps to run the project locally:
-
-### 1. Installation
-Clone the repo and install dependencies:
+### 1. Установка
+Склонируйте репозиторий и установите зависимости:
 
 ```bash
-git clone 
+git clone <your-repo-url>
+cd <project-folder>
 ```
 
 ```bash
 npm install
 ```
 
-### 2. Run Locally
-Start the development server:
+### 2. Локальный запуск
+Запустите сервер разработки:
 
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Откройте [http://localhost:3000](http://localhost:3000) в вашем браузере.
 
-### 3. Usage Guide
-1.  **Toggle Mode**: Use the switch in the top-right corner to choose **Dashboard** or **Chat** view.
-2.  **Load Data**: Click the **Load Dump** button (bottom right in Chat mode, top left in Dashboard) and select `llm_stream_dump.jsonl`.
-3.  **Start Stream**: Hit the **▶ Play** button.
-4.  **Watch Magic**: See text stream in real-time and watch the chart build itself! 📉
+### 3. Руководство по использованию
+1.  **Выбор режима**: Используйте переключатель в верхнем правом углу, чтобы выбрать режим **Дашборд** или **Чат-бот**.
+2.  **Загрузка данных**: Нажмите кнопку **Загрузить дамп** (внизу справа в режиме Чата, сверху слева в Дашборде) и выберите файл `llm_stream_dump.jsonl` (или любой другой валидный jsonl дамп).
+3.  **Запуск потока**: Нажмите кнопку **▶ Запустить**.
+4.  **Наблюдайте**: Смотрите, как текст появляется в реальном времени, а графики строятся автоматически! 📉
+
+---
+
+## ✨ Функции
+
+### 🧠 Интеллектуальное ядро
+*   **Эмуляция реального времени**: Имитирует живой поток Server-Sent Events (SSE) из статического файла дампа.
+*   **Динамический парсинг**: Интеллектуально распознает и отображает обычный текст рядом со сложными спецификациями графиков Vega-Lite.
+
+### 🎨 Два режима интерфейса
+Мгновенное переключение между двумя мощными видами:
+
+1.  **📊 Режим Дашборда** (Классический)
+    *   Профессиональный интерфейс с разделением экрана.
+    *   Идеально подходит для отладки и анализа сырых данных в сравнении с визуальным выводом бок о бок.
+
+2.  **💬 Режим Чат-бота** (Современный)
+    *   Стильный диалоговый интерфейс, вдохновленный ChatGPT.
+    *   **Иммерсивная визуализация**: Графики появляются *внутри* сообщений чата, бесшовно интегрируясь с текстом.
+    *   **Умное управление**: Элементы управления воспроизведением спрятаны внизу, как панель ввода в мессенджере.
+    *   **Экспорт**: Возможность скачать диалог в PDF, Markdown или скопировать текст.
+
+### 🎛️ Полный контроль
+*   **Воспроизведение**: Запуск, Пауза и Повтор потока по желанию.
+*   **Контроль скорости**: Центр управления для ускорения (до 5x) или замедления потока для детального анализа.
+*   **Мобильная адаптация**: Полностью адаптивный дизайн, который отлично работает на телефонах и планшетах.
+
+---
+
+## 🛠️ Стек технологий
+
+Построено с любовью, используя передовой стек Vercel:
+
+*   **Фреймворк**: [Next.js 15](https://nextjs.org/) (App Router)
+*   **Язык**: [TypeScript](https://www.typescriptlang.org/)
+*   **Стили**: [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
+*   **Графики**: [Vega-Lite](https://vega.github.io/vega-lite/) через `react-vega`
+*   **Иконки**: [Lucide React](https://lucide.dev/)

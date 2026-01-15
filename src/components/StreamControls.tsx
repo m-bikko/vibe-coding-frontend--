@@ -26,7 +26,7 @@ export function StreamControls({ onPlay, onStop, status, speed, setSpeed, disabl
                     className="flex-1"
                 >
                     <Play className="h-4 w-4 mr-2" />
-                    {status === 'done' || status === 'error' ? 'Replay' : 'Play'}
+                    {status === 'done' || status === 'error' ? 'Повторить' : 'Запустить'}
                 </Button>
 
                 <Button
@@ -37,7 +37,7 @@ export function StreamControls({ onPlay, onStop, status, speed, setSpeed, disabl
                     className="flex-1"
                 >
                     <Square className="h-4 w-4 mr-2" />
-                    Stop
+                    Стоп
                 </Button>
             </div>
 

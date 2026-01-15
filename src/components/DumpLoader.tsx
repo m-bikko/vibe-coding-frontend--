@@ -27,18 +27,18 @@ export function DumpLoader({ onLoaded }: DumpLoaderProps) {
                 const text = event.target?.result as string;
                 const events = parseJsonl(text);
                 if (events.length === 0) {
-                    setError('No valid events found in file.');
+                    setError('В файле не найдено корректных событий.');
                 } else {
                     onLoaded(events);
                 }
             } catch (err) {
-                setError('Failed to parse file.');
+                setError('Ошибка при разборе файла.');
             } finally {
                 setLoading(false);
             }
         };
         reader.onerror = () => {
-            setError('Error reading file.');
+            setError('Ошибка чтения файла.');
             setLoading(false);
         };
         reader.readAsText(file);
@@ -47,13 +47,13 @@ export function DumpLoader({ onLoaded }: DumpLoaderProps) {
     return (
         <div className="flex items-center justify-between gap-4 p-3 border rounded-lg bg-background w-full">
             <div className="text-sm font-medium truncate flex-1 leading-none">
-                {error ? <span className="text-red-500">{error}</span> : fileName || <span className="text-muted-foreground">No file selected</span>}
+                {error ? <span className="text-red-500">{error}</span> : fileName || <span className="text-muted-foreground">Файл не выбран</span>}
             </div>
 
             <Button variant="outline" size="sm" className="relative cursor-pointer shrink-0" asChild>
                 <label>
                     <Upload className="mr-2 h-3.5 w-3.5" />
-                    {loading ? 'Loading...' : 'Load Dump'}
+                    {loading ? 'Загрузка...' : 'Загрузить дамп'}
                     <input
                         type="file"
                         accept=".jsonl,.json"

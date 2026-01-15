@@ -65,7 +65,7 @@ function ThinkingBlock({ thought, isClosed }: { thought: string, isClosed: boole
             >
                 {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
                 <Brain className="h-3 w-3" />
-                <span>Thinking Process</span>
+                <span>Процесс мышления</span>
                 {!isClosed && <span className="animate-pulse ml-2 text-blue-500">●</span>}
             </button>
 
@@ -155,7 +155,7 @@ export function ChatMode({
                 {hasEvents && (
                     <div className="flex gap-4 justify-end">
                         <div className="bg-slate-200 dark:bg-slate-800 p-4 rounded-2xl rounded-tr-sm max-w-[80%]">
-                            <p className="text-sm font-medium">Analyze the loaded data and visualize it.</p>
+                            <p className="text-sm font-medium">Проанализируйте загруженные данные и визуализируйте их.</p>
                         </div>
                         <div className="hidden sm:flex w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 items-center justify-center shrink-0">
                             <User className="w-5 h-5 text-slate-600 dark:text-slate-300" />
@@ -195,7 +195,7 @@ export function ChatMode({
                                             size="sm"
                                             className="h-8 px-2 text-xs text-muted-foreground hover:bg-slate-100 dark:hover:bg-slate-800"
                                             onClick={handleDownloadPDF}
-                                            title="Download PDF"
+                                            title="Скачать PDF"
                                         >
                                             <FileText className="h-3.5 w-3.5 mr-1" />
                                             PDF
@@ -205,7 +205,7 @@ export function ChatMode({
                                             size="sm"
                                             className="h-8 px-2 text-xs text-muted-foreground hover:bg-slate-100 dark:hover:bg-slate-800"
                                             onClick={handleDownload}
-                                            title="Download Markdown"
+                                            title="Скачать Markdown"
                                         >
                                             <Download className="h-3.5 w-3.5 mr-1" />
                                             MD
@@ -215,17 +215,17 @@ export function ChatMode({
                                             size="sm"
                                             className="h-8 px-2 text-xs text-muted-foreground hover:bg-slate-100 dark:hover:bg-slate-800"
                                             onClick={handleCopy}
-                                            title="Copy to Clipboard"
+                                            title="Скопировать"
                                         >
                                             {copied ? (
                                                 <>
                                                     <Check className="h-3.5 w-3.5 mr-1 text-green-500" />
-                                                    <span className="text-green-500">Copied</span>
+                                                    <span className="text-green-500">Скопировано</span>
                                                 </>
                                             ) : (
                                                 <>
                                                     <Copy className="h-3.5 w-3.5 mr-1" />
-                                                    Copy
+                                                    Копировать
                                                 </>
                                             )}
                                         </Button>
