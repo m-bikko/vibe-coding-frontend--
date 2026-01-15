@@ -95,7 +95,7 @@ export function VegaPreview({ currentText, minified = false }: VegaPreviewProps)
     const content = spec ? (
         <VegaEmbed
             spec={spec}
-            actions={false}
+            options={{ actions: false }}
             className="w-full h-full flex justify-center items-center"
         />
     ) : (
