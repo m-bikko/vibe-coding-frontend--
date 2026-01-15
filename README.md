@@ -71,7 +71,3 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 2.  **Load Data**: Click the **Load Dump** button (bottom right in Chat mode, top left in Dashboard) and select `llm_stream_dump.jsonl`.
 3.  **Start Stream**: Hit the **▶ Play** button.
 4.  **Watch Magic**: See text stream in real-time and watch the chart build itself! 📉
-
----
-
-*Made for Vibe Coding Tezt.*

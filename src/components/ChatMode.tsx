@@ -6,6 +6,9 @@ import { StreamStatus } from '../lib/useStreamPlayer';
 import { StreamEvent } from '../lib/parser';
 import { Bot, User } from 'lucide-react';
 import { Card } from './ui/card';
+import ReactMarkdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight';
+import 'highlight.js/styles/github-dark.css';
 
 interface ChatModeProps {
     status: StreamStatus;
@@ -60,9 +63,16 @@ export function ChatMode({
                         </div>
                         <div className="space-y-4 max-w-[90%] w-full">
                             {/* Text Output Block */}
-                            <div className="bg-white dark:bg-slate-800 border p-4 rounded-2xl rounded-tl-sm shadow-sm">
-                                <div className="prose dark:prose-invert text-sm whitespace-pre-wrap font-mono">
-                                    {currentText}
+                            import ReactMarkdown from 'react-markdown';
+                            import rehypeHighlight from 'rehype-highlight';
+                            import 'highlight.js/styles/github-dark.css'; // Or another theme
+
+                            // ... inside the component
+                            <div className="bg-white dark:bg-slate-800 border p-4 rounded-2xl rounded-tl-sm shadow-sm overflow-hidden">
+                                <div className="prose dark:prose-invert text-sm max-w-none break-words">
+                                    <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
+                                        {currentText}
+                                    </ReactMarkdown>
                                 </div>
                                 <VegaPreview currentText={currentText} minified={true} />
                             </div>
