@@ -5,6 +5,7 @@ import { StreamStatus } from '../lib/useStreamPlayer';
 import { StreamEvent, extractThinkingProcess } from '../lib/parser';
 import { Bot, User } from 'lucide-react';
 import { MessageContent } from './MessageContent';
+import { ChatWelcome } from './ChatWelcome';
 import 'highlight.js/styles/github-dark.css';
 
 interface ChatModeProps {
@@ -49,37 +50,47 @@ export function ChatMode({
             {/* Chat Area - Takes available space */}
             <div className="flex-1 overflow-y-auto space-y-6 pb-4">
 
-                {/* User Message (simulated for context) */}
-                {hasEvents && (
-                    <div className="flex gap-4 justify-end">
-                        <div className="bg-slate-200 dark:bg-slate-800 p-4 rounded-2xl rounded-tr-sm max-w-[80%]">
-                            <p className="text-sm font-medium">Проанализируйте загруженные данные и визуализируйте их.</p>
+                {!hasEvents ? (
+                    <ChatWelcome onLoaded={handleLoaded} />
+                ) : (
+                    <>
+                        {/* User Message (simulated for context) */}
+                        <div className="flex gap-4 justify-end">
+                            <div className="bg-slate-200 dark:bg-slate-800 p-4 rounded-2xl rounded-tr-sm max-w-[80%]">
+                                <p className="text-sm font-medium">Проанализируйте загруженные данные и визуализируйте их.</p>
+                            </div>
+                            <div className="hidden sm:flex w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 items-center justify-center shrink-0">
+                                <User className="w-5 h-5 text-slate-600 dark:text-slate-300" />
+                            </div>
                         </div>
-                        <div className="hidden sm:flex w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 items-center justify-center shrink-0">
-                            <User className="w-5 h-5 text-slate-600 dark:text-slate-300" />
-                        </div>
-                    </div>
-                )}
 
-                {/* Bot Message - Only show if we have started streaming */}
-                {showBot && (
-                    <div className="flex gap-4">
-                        <div className="hidden sm:flex w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 items-center justify-center shrink-0">
-                            <Bot className="w-5 h-5 text-blue-600 dark:text-blue-300" />
-                        </div>
-                        <MessageContent text={currentText} isStreaming={status === 'streaming'} />
-                    </div>
+                        {/* Bot Message - Only show if we have started streaming */}
+                        {showBot && (
+                            <div className="flex gap-4">
+                                <div className="hidden sm:flex w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 items-center justify-center shrink-0">
+                                    <Bot className="w-5 h-5 text-blue-600 dark:text-blue-300" />
+                                </div>
+                                <MessageContent text={currentText} isStreaming={status === 'streaming'} />
+                            </div>
+                        )}
+                        <div ref={bottomRef} className="h-4" />
+                    </>
                 )}
-
-                <div ref={bottomRef} className="h-4" />
             </div>
 
-            {/* Controls - Sticky at bottom */}
+            {/* Controls - Sticky at bottom (Only show if events exist to avoid clutter, OR keep them disabled) */}
+            {/* The user request implies center CTA at start, so maybe hide bottom controls initially? */}
+            {/* Let's keep them but maybe disabled state is enough. But for cleaner UI, let's hide DumpLoader if !hasEvents since we have the huge one. */}
+
             <div className="shrink-0 bg-slate-50 dark:bg-slate-900 z-10 pt-4 border-t">
                 <div className="flex flex-col gap-3">
-                    <div className="w-full">
-                        <DumpLoader onLoaded={handleLoaded} />
-                    </div>
+                    {/* Only show small loader if we already have events (to allow changing file) */}
+                    {hasEvents && (
+                        <div className="w-full">
+                            <DumpLoader onLoaded={handleLoaded} />
+                        </div>
+                    )}
+
                     <div className="w-full">
                         <StreamControls
                             onPlay={play}
