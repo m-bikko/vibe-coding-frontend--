@@ -11,7 +11,7 @@ import { LayoutDashboard, MessageSquare } from 'lucide-react';
 
 export default function AIExplorePage() {
   const [events, setEvents] = useState<StreamEvent[]>([]);
-  const [mode, setMode] = useState<'dashboard' | 'chat'>('dashboard');
+  const [mode, setMode] = useState<'dashboard' | 'chat'>('chat');
 
   const {
     status,

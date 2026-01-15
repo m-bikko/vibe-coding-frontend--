@@ -63,11 +63,6 @@ export function ChatMode({
                         </div>
                         <div className="space-y-4 max-w-[90%] w-full">
                             {/* Text Output Block */}
-                            import ReactMarkdown from 'react-markdown';
-                            import rehypeHighlight from 'rehype-highlight';
-                            import 'highlight.js/styles/github-dark.css'; // Or another theme
-
-                            // ... inside the component
                             <div className="bg-white dark:bg-slate-800 border p-4 rounded-2xl rounded-tl-sm shadow-sm overflow-hidden">
                                 <div className="prose dark:prose-invert text-sm max-w-none break-words">
                                     <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
@@ -85,11 +80,11 @@ export function ChatMode({
 
             {/* Controls - Sticky at bottom */}
             <div className="shrink-0 bg-slate-50 dark:bg-slate-900 z-10 pt-4 border-t">
-                <div className="flex flex-col sm:flex-row gap-4">
-                    <div className="flex-1">
+                <div className="flex flex-col gap-3">
+                    <div className="w-full">
                         <DumpLoader onLoaded={handleLoaded} />
                     </div>
-                    <div className="flex-1">
+                    <div className="w-full">
                         <StreamControls
                             onPlay={play}
                             onStop={stop}
