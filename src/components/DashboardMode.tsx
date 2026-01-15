@@ -14,7 +14,8 @@ interface DashboardModeProps {
     speedMultiplier: number;
     setSpeedMultiplier: (speed: number) => void;
     hasEvents: boolean;
-    handleLoaded: (events: StreamEvent[]) => void;
+    handleLoaded: (events: StreamEvent[], fileName: string) => void;
+    fileName?: string;
 }
 
 export function DashboardMode({
@@ -25,14 +26,15 @@ export function DashboardMode({
     speedMultiplier,
     setSpeedMultiplier,
     hasEvents,
-    handleLoaded
+    handleLoaded,
+    fileName
 }: DashboardModeProps) {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
             <div className="space-y-6 flex flex-col w-full order-1 lg:order-none lg:h-[calc(100vh-200px)]">
                 {/* Top Controls Area */}
                 <div className="space-y-4 shrink-0">
-                    <DumpLoader onLoaded={handleLoaded} />
+                    <DumpLoader onLoaded={handleLoaded} fileName={fileName} />
                     <StreamControls
                         onPlay={play}
                         onStop={stop}

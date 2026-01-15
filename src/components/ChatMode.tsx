@@ -16,7 +16,8 @@ interface ChatModeProps {
     speedMultiplier: number;
     setSpeedMultiplier: (speed: number) => void;
     hasEvents: boolean;
-    handleLoaded: (events: StreamEvent[]) => void;
+    handleLoaded: (events: StreamEvent[], fileName: string) => void;
+    fileName?: string;
 }
 
 export function ChatMode({
@@ -27,7 +28,8 @@ export function ChatMode({
     speedMultiplier,
     setSpeedMultiplier,
     hasEvents,
-    handleLoaded
+    handleLoaded,
+    fileName
 }: ChatModeProps) {
     const bottomRef = useRef<HTMLDivElement>(null);
     const { hasThought } = extractThinkingProcess(currentText);
@@ -87,7 +89,7 @@ export function ChatMode({
                     {/* Only show small loader if we already have events (to allow changing file) */}
                     {hasEvents && (
                         <div className="w-full">
-                            <DumpLoader onLoaded={handleLoaded} />
+                            <DumpLoader onLoaded={handleLoaded} fileName={fileName} />
                         </div>
                     )}
 

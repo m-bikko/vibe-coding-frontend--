@@ -4,7 +4,7 @@ import { Upload, FileJson } from 'lucide-react';
 import { parseJsonl, StreamEvent } from '../lib/parser';
 
 interface ChatWelcomeProps {
-    onLoaded: (events: StreamEvent[]) => void;
+    onLoaded: (events: StreamEvent[], fileName: string) => void;
 }
 
 export function ChatWelcome({ onLoaded }: ChatWelcomeProps) {
@@ -24,7 +24,7 @@ export function ChatWelcome({ onLoaded }: ChatWelcomeProps) {
                 if (events.length === 0) {
                     setError('В файле не найдено корректных событий.');
                 } else {
-                    onLoaded(events);
+                    onLoaded(events, file.name);
                 }
             } catch (err) {
                 setError('Ошибка при разборе файла.');

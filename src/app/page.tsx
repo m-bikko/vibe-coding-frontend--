@@ -13,6 +13,7 @@ import { ModeToggle } from '@/components/mode-toggle';
 export default function AIExplorePage() {
   const [events, setEvents] = useState<StreamEvent[]>([]);
   const [mode, setMode] = useState<'dashboard' | 'chat'>('chat');
+  const [fileName, setFileName] = useState<string>('');
 
   const {
     status,
@@ -24,9 +25,10 @@ export default function AIExplorePage() {
     speedMultiplier
   } = useStreamPlayer(events);
 
-  const handleLoaded = (loadedEvents: StreamEvent[]) => {
+  const handleLoaded = (loadedEvents: StreamEvent[], name: string) => {
     reset();
     setEvents(loadedEvents);
+    setFileName(name);
   };
 
   const hasEvents = events.length > 0;
@@ -80,6 +82,7 @@ export default function AIExplorePage() {
               setSpeedMultiplier={setSpeedMultiplier}
               hasEvents={hasEvents}
               handleLoaded={handleLoaded}
+              fileName={fileName}
             />
           ) : (
             <ChatMode
@@ -91,6 +94,7 @@ export default function AIExplorePage() {
               setSpeedMultiplier={setSpeedMultiplier}
               hasEvents={hasEvents}
               handleLoaded={handleLoaded}
+              fileName={fileName}
             />
           )}
         </main>
