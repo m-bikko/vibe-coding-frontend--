@@ -14,8 +14,8 @@ AI Explore — это современное приложение на Next.js, 
 Склонируйте репозиторий и установите зависимости:
 
 ```bash
-git clone <your-repo-url>
-cd <project-folder>
+git clone [https://github.com/m-bikko/ai-explore](https://github.com/m-bikko/ai-explore)
+cd [https://github.com/m-bikko/ai-explore](https://github.com/m-bikko/ai-explore)
 ```
 
 ```bash
